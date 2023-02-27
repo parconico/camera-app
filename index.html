@@ -27,8 +27,11 @@
             let form = document.getElementById('myform');
             // Capturar la imagen
             let input = document.getElementById('capture');
+            let img = document.getElementById('img')
+            img.style.visibility="hidden";
 
             input.addEventListener('change', (e) => {
+                img.style.visibility="visible";
                 console.dir(input.files[0]);
                 if (input.files[0].type.indexOf('image/') > -1) {
                     let img = document.getElementById('img');
