@@ -9,14 +9,32 @@
 </head>
 
 <body>
-    <div>
-        <label for="capture">Capture Media</label>
+    <h1>Prueba de camara</h1>
+    <form action="#" id="myform">
+        <label for="capture">Capturar DNI</label>
         <input type="file" id="capture" accept="image/*,video/*,audio/*" capture />
-    </div>
-    <video id="video" width="640" height="480" autoplay></video>
+        <input type="submit" value="Guardar">
+    </form>
+    <p><img src="" id="img" alt="from phone"></p>
+    <!-- <video id="video" width="640" height="480" autoplay></video>
     <button id="snap">Tomar foto</button>
-    <canvas id="canvas" width="640" height="480"></canvas>
-    <script src="app.js"></script>
+    <canvas id="canvas" width="640" height="480"></canvas> -->
+    <!-- <script src="app.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (e) => {
+            let form = document.getElementById('myform');
+            // Capturar la imagen
+            let input = document.getElementById('capture');
+
+            input.addEventListener('change', (e) => {
+                console.dir(input.files[0]);
+                if (input.files[0].type.indexOf('image/') > -1) {
+                    let img = document.getElementById('img');
+                    img.src = window.URL.createObjectURL(input.files[0]);
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
